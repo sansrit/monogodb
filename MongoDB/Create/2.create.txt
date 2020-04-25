@@ -1,0 +1,116 @@
+show dbs
+
+use *databaseName //creates database is not exists or uses if exists
+
+db.dropDatabase() // drops the existing database
+
+show collections() // shows the different collections used on database
+
+
+
+use contactData
+
+
+EXAMPLES OF INSERT ONE:
+
+Syntax:
+
+db.collection_name.insertOne({})
+
+
+
+
+ 
+db.persons.insertOne({name:"Ram", age: 18 , hobbies: ["agriculute", " football"]})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("5ea44b3a690b39bcbc4ab51e")
+}
+
+db.persons.find().pretty()
+{
+        "_id" : ObjectId("5ea44b3a690b39bcbc4ab51e"),
+        "name" : "Ram",
+        "age" : 18,
+        "hobbies" : [
+                "agriculute",
+                " football"
+        ]
+}
+
+
+EXAMPLES OF INSERT MANY
+
+
+db.persons.insertMany([{name: " krishna", age : 16 }, {name: " Maria", age : 19, sex: "female"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5ea45d6e690b39bcbc4ab520"),
+                ObjectId("5ea45d6e690b39bcbc4ab521")
+        ]
+}
+
+if we provide custom ids to the collections  if two ids gets conflicts then :
+
+ROLLBACK WON'T OCCURS
+ORDERED INSERT
+
+
+{ordered: false}
+
+it will insert data upto the place where confilcts
+we can cotrol this event by using  ordered to flase  there by changing its defalult behaviour
+it will then insert all the collections which have no conflicts
+
+
+
+WRITE CONCERN..
+IF SERVER IS DOWN WE CAN MANAGE IT BY ALSO WRITING ON JOURNEL. MANAGED BY STORAGE ENGINE IN MONGODB
+
+db.persons.insertOne({name:"sangeeta", age: 23}, {writeConcern:{w:1, j: true}})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("5ea465f2690b39bcbc4ab524")
+}
+
+db.persons.insertOne({name:"sangeet", age: 23}, {writeConcern:{w:1, j: true, wtimeout: 5000}})
+
+
+
+ATOMICITY
+
+simply ki data database ma insert hunxa ki kei hunna.. vaye sappai hunxa natra kei hunna
+
+ 
+IMPORTING JSON DOCUMENTS 
+
+
+1.locate the file 
+
+cd file location root folder
+
+
+mongoimport filename_with_extension -d database_name -c collection_name --jsonArray --drop
+
+
+drop is used to drop database if it's data content gets duplicated
+if some data gets duplicate it automaticallyg gets appended
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

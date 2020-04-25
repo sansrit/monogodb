@@ -1,0 +1,34 @@
+ show collections
+
+db.customers.insertOne({name: 'Max', age: 18})
+
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("5e9d593a797fa26b8eac9c74")
+}
+
+
+db.customers.find().pretty()
+{ "_id" : ObjectId("5e9d593a797fa26b8eac9c74"), "name" : "Max", "age" : 18 }
+
+db.customers.updateOne({}, {$set: { orders:[{productId: ObjectId("5e9d593a797fa26b8eac9c74"), quantity: 2 } ]}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+db.customers.findOne()
+{
+        "_id" : ObjectId("5e9d593a797fa26b8eac9c74"),
+        "name" : "Max",
+        "age" : 18,
+        "orders" : [
+                {
+                        "productId" : ObjectId("5e9d593a797fa26b8eac9c74"),
+                        "quantity" : 2
+                }
+        ]
+}
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+
+
+CREATING DATABASE WITH  name cityData
+
+
+
+use cityData
+
+POPULATING DATA ON COLLECTION 
+
+db.cityData.insertOne({name: "kathmandu", cordinates:{lat: 29, long:53}})
+
+
+
+USING THE CITIZENS NAME ON DIFFRENT COLLECTIONS
+WE CAN REFRENCE BOTH LATER ON WITH SOME OBJECT IDS
+
+
+
+> db.citizens.insertMany([{name: "sansrit paudel", cityId: ObjectId("5e96c606e02eac42faad4be2")} , { name: "poonam", cityId: ObjectId("5e96c606e02eac42faad4be2")}])
+
+
+
+> db.citizens.find().pretty()
+{
+        "_id" : ObjectId("5e96c7d1e02eac42faad4be3"),
+        "name" : "sansrit paudel",
+        "cityId" : ObjectId("5e96c606e02eac42faad4be2")
+}
+{
+        "_id" : ObjectId("5e96c7d1e02eac42faad4be4"),
+        "name" : "poonam",
+        "cityId" : ObjectId("5e96c606e02eac42faad4be2")
+}
+>
+
+
+

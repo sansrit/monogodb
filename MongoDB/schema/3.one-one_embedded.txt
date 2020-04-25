@@ -1,0 +1,39 @@
+use hospital
+
+//creating new collection patients and inserting the data on
+
+db.patients.insertOne({name: "sansrit", age: 22, diseaseSummary: "summary-max-1"})
+
+db.patients.findOne()
+
+
+//creating new collectoin diseaseSummary for diseases
+
+
+
+db.patients.deleteMany({})
+
+db.patients.insertOne({name:"sansrit", age: 21, diseaseSummary:{ diseases:["cold", "allergies"]} })
+
+
+
+> db.patients.findOne()
+{
+        "_id" : ObjectId("5e9687c6e02eac42faad4bdd"),
+        "name" : "sansrit",
+        "age" : 21,
+        "diseaseSummary" : {
+                "diseases" : [
+                        "cold",
+                        "allergies"
+                ]
+        }
+}
+>
+
+
+
+
+
+
+// embedded documents are used when you have one-one reationships

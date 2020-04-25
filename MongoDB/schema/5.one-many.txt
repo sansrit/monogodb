@@ -1,0 +1,50 @@
+ONE TO MANY EMBEDDED RELATIONSHIP
+
+
+show dbs
+
+//create the database named support
+use support
+
+
+db.questionThreads.insertOne({creator:"sansrit", question:"How does all that works?", answers:["q1a1","q2a2"]})
+
+
+//shows every results
+
+db.questionThread.findOne()
+
+
+//connecting the answer to the questions
+
+db.answers.insertMany([{_id:"q1a1", text: "it works like that"}, {_id:"q2a2", text: "Thanks!"}])
+
+
+db.answers.find()
+
+
+Alter
+
+db.questionThread.deleteMany({})
+
+db.questionThread.insertOne({creator:"sansrit",question:"how does that work", answers:[{text:"like that"}, {text:"thanks!"}]})
+
+
+
+
+> db.questionThread.findOne()
+{
+        "_id" : ObjectId("5e96c3e9e02eac42faad4be1"),
+        "creator" : "sansrit",
+        "question" : "how does that work",
+        "answers" : [
+                {
+                        "text" : "like that"
+                },
+                {
+                        "text" : "thanks!"
+                }
+        ]
+}
+>
+

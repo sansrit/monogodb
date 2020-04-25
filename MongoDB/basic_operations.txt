@@ -1,0 +1,129 @@
+//monogo db .. March 25 2019
+
+
+1. show dbs
+//shows the all databases
+
+2. use flights
+// creates a database naame flights
+
+3. db.flightData.insertOne({
+	
+	"departureAirport": "Tribhuvan International",
+	"aircraft": "Airbus 330A",
+	"intercontinential": true,
+	"distance": 1400
+   }
+)
+
+4. db.flightData.find()
+//to show the the collection
+
+5. db.flightData.find().pretty()
+//to show the information in organised way
+
+6. deleting collection
+
+db.flightData.deleteOne({
+"distance":1400
+})
+
+db.flightData.deleteMany({
+})
+ 
+//deletes all the collection that matches collection.
+
+
+7.Updating
+
+//updates single first collection
+
+	db.flightData.updateOne(	
+	
+	{distance:12000},
+	
+	{$set : {marker:"delete"}}
+
+)
+  
+
+//updates the entire collection to change
+
+db.flightData.updateMany({}, {$set: {marker: "toDelete"}})
+
+
+
+db.flightData.insertMany([
+	{
+		"departureAirport": "MUC",
+		"arrivalAirport": "SFO",
+		"aircraft": "Airbus A380",
+		"distance": 12000,
+		"intercontinental": true
+	},
+
+	{
+		"departureAirport": "LHR",
+		"arrivalAirport": "TXL",
+		"aircraft": "Airbus A320",
+		"distance": 12000,
+		"intercontinental": false
+	}
+		
+])
+
+/// to find the data in collections
+
+db.flightData.find({})
+
+db.flightData.find( {intercontinental: true}).pretty()
+
+or 
+
+to find data where distance greater than 1000 km 
+
+db.flightData.find({distance: {$gt: 10000 }}).pretty()
+
+
+2.11 update 
+
+db.flightData.updateOne({_id: ObjectId("5blasdfifdnfdfdifdib") }, {$set:{delayed:true}})
+
+
+//difference between update and updateOne.
+//also db.flightData.replaceOne({}, {})
+
+
+
+
+2.13 Projections
+taking only the required info from databases
+
+db.passengers.find({},{name: 1, _id: 0}).pretty() 
+
+2.14  adding Embedded docs.. i.e nesting going through the levels down 
+
+ db.flightData.updateMany({}, {$set : {status: {description : "on_time", lastUpdated: " 5 min ago"}   }  })
+
+
+
+ db.flightData.updateMany({}, {$set : {status: {description : "on_time", lastUpdated: " 5 min ago",details:{responsible: "Sansrit"}}}})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

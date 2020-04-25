@@ -1,0 +1,4 @@
+db.person.insertOne({name:"sansrit", age: 21, salary: 20000})
+
+
+db.cars.insertOne({model: "BMW", price:7000000, owner:ObjectId("5e968a5ce02eac42faad4bde")})

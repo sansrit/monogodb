@@ -1,0 +1,23 @@
+TO READ DATA FROM THE DATABASE SIMPLY
+
+
+
+
+=>{filter}
+
+db.myCollection.find( { age: 21   }  )
+
+EXAMPLE
+
+db.person.find( {age: 21 } )
+
+
+TO FIND THE ALL DATA WHERE AGE GREATER THAN 21 WE USE 
+OPERATER $gt
+
+
+
+db.person.find( {age:  {$gt:21 }  } )
+
+
+

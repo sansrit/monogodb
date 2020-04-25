@@ -1,0 +1,14 @@
+we can use different datatypes as 
+
+ 
+
+1. text 
+2. Boolean
+3. Number (int(32)  , int(64), NumberDecimal )
+4. ObjectId
+5. ISODate
+6. Timestamp
+7. Embedded Documents
+8. Arrays
+
+

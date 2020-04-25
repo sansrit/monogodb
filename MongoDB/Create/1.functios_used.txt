@@ -1,0 +1,17 @@
+//CREATE A DOCUMENTS
+
+insertOne() => db.collectionName.insertOne({field: "value"}) 
+// this is used for inserting single document
+
+
+insertMany() => db.collectionName.insertMany([
+			{field: "value"},
+			{field: "value}])
+
+// this is used for inserting multiples documents in an array form 
+
+
+
+insert() => db.collectionName.insert()
+// this function can be used for inserting any form of documents single or multiples
+
